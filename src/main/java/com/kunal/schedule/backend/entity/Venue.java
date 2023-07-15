@@ -8,11 +8,14 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Team {
+public class Venue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
 
-    private String teamName;
+    private String location;
+
+    private Integer capacity;
+
 }
