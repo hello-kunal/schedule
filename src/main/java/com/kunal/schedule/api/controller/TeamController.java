@@ -1,7 +1,7 @@
 package com.kunal.schedule.api.controller;
 
 import com.kunal.schedule.backend.middle.TeamProvider;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/team")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TeamController {
 
     private final TeamProvider teamProvider;

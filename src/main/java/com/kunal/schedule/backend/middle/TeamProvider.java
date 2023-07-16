@@ -3,11 +3,11 @@ package com.kunal.schedule.backend.middle;
 import com.kunal.schedule.backend.entity.Team;
 import com.kunal.schedule.backend.repository.TeamRepository;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.RequestScope;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 @RequestScope
 @Transactional
