@@ -23,6 +23,7 @@ public class SpringDocConfig {
                 .info(customInfo());
     }
 
+    // TODO, read version from build.gradle file and display on swagger doc
     private Info customInfo() {
         // version from version.properties
         String version = "1";
