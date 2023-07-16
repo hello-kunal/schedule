@@ -2,7 +2,10 @@ package com.kunal.schedule.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,18 +13,24 @@ import java.util.Collection;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
 
+    @Column(unique = true, nullable = false)
+    private String name;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
     @Column(nullable = false)
     @JsonIgnore
     private String password;
-
-    @Column(unique = true, nullable = false)
-    private String name;
 
     @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
@@ -70,12 +79,12 @@ public class Member implements UserDetails {
         ANONYMOUS,
         ADMIN,
         MODERATOR,
-        CONSUMER;
+        CONSUMER
     }
 
     public enum USER_STATUS {
         ACTIVE,
-        INACTIVE;
+        INACTIVE
     }
 }
 
