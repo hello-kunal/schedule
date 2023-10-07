@@ -1,10 +1,10 @@
 version: 2
 updates:
 
+  # Check for updates to GitHub Actions every week
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      # Check for updates to GitHub Actions every week
       interval: "weekly"
     labels:
       - "github-actions"
@@ -13,5 +13,21 @@ updates:
       github-actions:
         update-types:
           - "major"
+          - "minor"
+          - "patch"
+
+  # Check for updates to gradle dependencies every week
+  # Only group non-breaking dependencies to a single pull request
+  # Breaking changes via separate pull requests
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "gradle"
+      - "dependencies"
+    groups:
+      non-breaking:
+        update-types:
           - "minor"
           - "patch"
