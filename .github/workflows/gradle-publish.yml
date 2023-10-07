@@ -8,8 +8,12 @@
 name: Gradle Package
 
 on:
+  push:
+    branches:
+      - '**'
   release:
-    types: [created]
+    types:
+      - created
 
 jobs:
   build:
@@ -37,6 +41,7 @@ jobs:
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
+      if: ${{ github.event_name == 'release' }}
       uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
       with:
         arguments: publish
