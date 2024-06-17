@@ -36,7 +36,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@e2097ccd7e8ed48671dc068ac4efa86d25745b39 # v3.3.1
+      uses: gradle/gradle-build-action@04b20c065cf1ab708c96e64a8811018d0a1fbc88 # v3.4.1
       with:
         arguments: build
 
@@ -44,7 +44,7 @@ jobs:
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
       if: ${{ github.event_name == 'release' }}
-      uses: gradle/gradle-build-action@e2097ccd7e8ed48671dc068ac4efa86d25745b39 # v3.3.1
+      uses: gradle/gradle-build-action@04b20c065cf1ab708c96e64a8811018d0a1fbc88 # v3.4.1
       with:
         arguments: publish
       env:
